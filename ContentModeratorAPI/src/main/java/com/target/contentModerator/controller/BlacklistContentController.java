@@ -22,6 +22,16 @@ import com.target.contentModerator.service.BlacklistContentService;
 @RestController
 public class BlacklistContentController {
 	
+	/**
+	 * TODO :
+	 * Logging
+	 * input validation
+	 * error handling
+	 * documentation
+	 * 
+	 * */
+	
+	
 	@Autowired
 	private BlacklistContentService blacklistContentService;
 	

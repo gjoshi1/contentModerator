@@ -15,12 +15,10 @@ import com.target.contentModerator.repository.BlacklistContentRepository;
  * @author Gowri Joshi
  *
  */
-/**
- * @author GowriKD
- *
- */
+
 @Service
 public class BlacklistContentService {
+	
 	
 	@Autowired
 	private BlacklistContentRepository blacklistContentRepository;
