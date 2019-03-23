@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.target.contentModerator.model.BlacklistContent;
 import com.target.contentModerator.repository.BlacklistContentRepository;
+import com.target.contentModerator.repository.BlacklistContentRepositoryImpl;
 
 /**
  * @author Gowri Joshi
@@ -23,6 +24,9 @@ public class BlacklistContentService {
 	@Autowired
 	private BlacklistContentRepository blacklistContentRepository;
 	
+	@Autowired
+	private BlacklistContentRepositoryImpl blacklistContentRepositoryImpl;
+	
 	
 	public BlacklistContent create(String word, String lang) {
 		
@@ -33,6 +37,8 @@ public class BlacklistContentService {
 	public BlacklistContent update(BlacklistContent blackListContent) {
 		
 		return blacklistContentRepository.save(blackListContent);
+		
+		
 		
 	}
 	
@@ -55,6 +61,11 @@ public class BlacklistContentService {
 		
 		return blacklistContentRepository.findByLang(lang);
 		
+		
+	}
+
+	public List<String> getSupportedLanguages() {
+		return blacklistContentRepositoryImpl.findDistinctLanguages();
 		
 	}
 	

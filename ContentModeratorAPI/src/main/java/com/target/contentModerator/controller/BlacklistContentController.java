@@ -56,6 +56,12 @@ public class BlacklistContentController {
 		return blacklistContentService.getAllBlackListContent();
 	}
 	
+	@RequestMapping("/getSupportedLanguages")
+	public List<String>  getAllLanguages() {
+		
+		return blacklistContentService.getSupportedLanguages();
+	}
+	
 	@RequestMapping("/getAllBlacklistContentByLang")
 	public List<BlacklistContent>  getAllBlacklistContentByLang(@RequestParam String lang) {
 		

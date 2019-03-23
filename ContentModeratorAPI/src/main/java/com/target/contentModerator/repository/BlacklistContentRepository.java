@@ -13,5 +13,4 @@ public interface BlacklistContentRepository extends MongoRepository<BlacklistCon
 	public List<BlacklistContent> findByLang(String lang);
 	
 	
-	
 }
