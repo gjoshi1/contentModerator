@@ -11,16 +11,20 @@ import java.util.List;
  */
 public class ReviewResult {
 	
+	String id;
 	String lang;
 	List<String> blacklistedWords;
 	
 	
+	
 	/**
+	 * @param id
 	 * @param lang
 	 * @param blacklistedWords
 	 */
-	public ReviewResult(String lang, List<String> blacklistedWords) {
+	public ReviewResult(String id, String lang, List<String> blacklistedWords) {
 		super();
+		this.id = id;
 		this.lang = lang;
 		this.blacklistedWords = blacklistedWords;
 	}
@@ -53,7 +57,7 @@ public class ReviewResult {
 	 */
 	@Override
 	public String toString() {
-		return "ReviewResult [lang=" + lang + ", blacklistedWords=" + blacklistedWords + "]";
+		return "ReviewResult [contentid=" + id + ", lang=" + lang + ", blacklistedWords=" + blacklistedWords + "]";
 	}
 	
 	

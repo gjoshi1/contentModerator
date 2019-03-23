@@ -18,9 +18,9 @@ public class UserContentReviewService {
 	@Autowired
 	private BlacklistContentService blacklistContentService;
 	
-	public ReviewResult reviewContent(String content,String lang) {
+	public ReviewResult reviewContent(String id,String content,String lang) {
 		
-		return new ReviewResult(lang,null);
+		return new ReviewResult(id,lang,null);
 		
 	}
 }

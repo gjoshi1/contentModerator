@@ -24,8 +24,8 @@ public class UserContentController {
 	
 	
 	@RequestMapping("/reviewContent")
-	public @ResponseBody ReviewResult  reviewContent(@RequestParam String content, @RequestParam String lang) {
+	public @ResponseBody ReviewResult  reviewContent(@RequestParam String id,@RequestParam String content, @RequestParam String lang) {
 		
-		return userContentReviewService.reviewContent(content, lang);
+		return userContentReviewService.reviewContent(id,content, lang);
 	}
 }
