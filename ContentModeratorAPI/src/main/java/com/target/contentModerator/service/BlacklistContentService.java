@@ -42,8 +42,9 @@ public class BlacklistContentService {
 		blacklistContentRepository.deleteAll();
 	}
 	
-	public void delete(BlacklistContent blackListContent) {
-		blacklistContentRepository.delete(blackListContent);
+	public void delete(String id) {
+		blacklistContentRepository.deleteById(id);
+		
 	}
 	
 	

@@ -9,6 +9,7 @@ public class BlacklistContent {
 	
 	@Id
 	String id;
+
 	String word;
 	String lang;
 	
@@ -26,6 +27,14 @@ public class BlacklistContent {
 		
 	}
 
+	public String getId() {
+		return id;
+	}
+
+
+	public void setId(String id) {
+		this.id = id;
+	}
 	
 	public String getLang() {
 		return lang;
@@ -51,7 +60,7 @@ public class BlacklistContent {
 	
 	@Override
 	public String toString() {
-		return "BlackListContent [word=" + word + ", lang=" + lang + "]";
+		return "BlackListContent [+id = "+id+ " word=" + word + ", lang=" + lang + "]";
 	}
 
 }

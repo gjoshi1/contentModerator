@@ -61,9 +61,9 @@ public class BlacklistContentController {
 	}
 
 	@RequestMapping("/delete")
-	public void delete(@RequestParam BlacklistContent blackListContent) {
+	public void delete(@RequestParam String id) {
 		
-		blacklistContentService.delete(blackListContent);
+		blacklistContentService.delete(id);
 	}
 
 }
