@@ -31,9 +31,7 @@ public class BlacklistContentController {
 	
 	/**
 	 * TODO :
-	 * Logging
-	 * input validation
-	 * error handling
+	 
 	 * documentation
 	 * 
 	 * */

@@ -34,6 +34,12 @@ public class BlacklistContentService {
 		
 	}
 	
+	public BlacklistContent create(String id,String word, String lang) {
+		
+		return blacklistContentRepository.save(new BlacklistContent(id,word, lang));
+		
+	}	
+	
 	public BlacklistContent update(BlacklistContent blackListContent) {
 		
 		return blacklistContentRepository.save(blackListContent);

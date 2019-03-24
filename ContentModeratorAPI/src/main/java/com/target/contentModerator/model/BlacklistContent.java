@@ -18,7 +18,19 @@ public class BlacklistContent {
 	 * @param id
 	 * @param word
 	 * @param lang
-	 * @param region
+	 */
+	public BlacklistContent(String id, String word, String lang) {
+		super();
+		this.id = id;
+		this.word = word;
+		this.lang = lang;
+	}
+
+	/**
+	
+	 * @param word
+	 * @param lang
+	
 	 */
 	public BlacklistContent(String word, String lang) {
 		
