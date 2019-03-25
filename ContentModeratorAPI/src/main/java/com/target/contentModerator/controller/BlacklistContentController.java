@@ -24,6 +24,8 @@ import com.target.contentModerator.service.BlacklistContentService;
 
 /**
  * @author Gowri Joshi
+ * 
+ * This class is REST controller for BlacklistContent CRUD operations.
  *
  */
 @RestController
@@ -42,7 +44,13 @@ public class BlacklistContentController {
 	@Autowired
 	private BlacklistContentService blacklistContentService;
 	
-	
+	/**
+	 * CREATE
+	 * @param word
+	 * @param lang
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("/create")
 	public String create(@RequestParam String word, @RequestParam String lang) throws Exception {
 		
@@ -53,9 +61,14 @@ public class BlacklistContentController {
 		BlacklistContent blc = blacklistContentService.create(word, lang);
 		
 		LOGGER.info("CREATED BLACKLIST ENTRY "+blc.toString());
+		
 		return blc.toString();
 	}
-	
+	/**
+	 * UPDATE
+	 * @param blackListContent
+	 * @return
+	 */
 	@RequestMapping("/update")
 	public String update(@RequestBody BlacklistContent blackListContent) {
 		
@@ -65,23 +78,37 @@ public class BlacklistContentController {
 			throw new IllegalArgumentException("Missing ID, cannot update document");
 		}
 		
+		BlacklistContent bc = blacklistContentService.update(blackListContent);
 		
-		return blacklistContentService.update(blackListContent).toString();
+		LOGGER.info("UPDATED BLACKLIST ENTRY "+bc.toString());
+		
+		return bc.toString();
 	}
 	
-	
+	/**
+	 * GET Blacllist content for ALL languages
+	 * @return
+	 */
 	@RequestMapping("/getAll")
 	public List<BlacklistContent>  getAll() {
 		
 		return blacklistContentService.getAllBlackListContent();
 	}
 	
+	/**
+	 * Gets list of supported languages
+	 * @return
+	 */
 	@RequestMapping("/getSupportedLanguages")
 	public List<String>  getAllLanguages() {
 		
 		return blacklistContentService.getSupportedLanguages();
 	}
-	
+	/**
+	 * Gets list of blacklistcontent filtered by language
+	 * @param lang
+	 * @return
+	 */
 	@RequestMapping("/getAllBlacklistContentByLang")
 	public List<BlacklistContent>  getAllBlacklistContentByLang(@RequestParam String lang) {
 		
@@ -89,13 +116,19 @@ public class BlacklistContentController {
 	}
 	
 	
-	
+	/**
+	 * Deletes all entries for blacklistcontent
+	 */
 	@RequestMapping("/deleteAll")
 	public void deleteAll() {
 		
 		blacklistContentService.deleteAll();
 	}
 
+	/**
+	 * Deletes blacklistcontent by id
+	 * @param id
+	 */
 	@RequestMapping("/delete")
 	public void delete(@RequestParam String id) {
 		
@@ -105,6 +138,11 @@ public class BlacklistContentController {
 		blacklistContentService.delete(id);
 	}
 	
+	/**
+	 * Global exception handler
+	 * @param response
+	 * @throws IOException
+	 */
 	@ExceptionHandler(IllegalArgumentException.class)
 	void handleBadRequests(HttpServletResponse response) throws IOException {
 	    response.sendError(HttpStatus.BAD_REQUEST.value());

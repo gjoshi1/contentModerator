@@ -3,14 +3,12 @@ package com.target.contentModerator.service;
 import java.util.List;
 
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -18,7 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.target.contentModerator.ContentModeratorApiApplication;
 import com.target.contentModerator.model.BlacklistContent;
 import com.target.contentModerator.model.ReviewResult;
-import com.target.contentModerator.repository.BlacklistContentRepository;
+import com.target.contentModerator.model.UserContent;
 import com.target.contentModerator.utils.TestDataUtil;
 
 @RunWith(SpringRunner.class)
@@ -64,7 +62,7 @@ public class UserContentReviewServiceTest {
 		
 		ReviewResult rr = TestDataUtil.getTestUserContentReviewResult("1");//sample result for txt
 		
-		ReviewResult ur = userContentReviewService.reviewContent("1", txt, "en");
+		ReviewResult ur = userContentReviewService.reviewContent(new UserContent("1", txt, "en"));
 		
 		System.out.println("------------------"+ur.toString());
 		

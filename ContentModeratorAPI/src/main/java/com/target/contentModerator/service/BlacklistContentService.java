@@ -4,6 +4,7 @@
 package com.target.contentModerator.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,7 +31,9 @@ public class BlacklistContentService {
 	
 	public BlacklistContent create(String word, String lang) {
 		
-		return blacklistContentRepository.save(new BlacklistContent(word, lang));
+		final String uuid = UUID.randomUUID().toString().replace("-", "");
+		
+		return this.create(uuid,word, lang);
 		
 	}
 	

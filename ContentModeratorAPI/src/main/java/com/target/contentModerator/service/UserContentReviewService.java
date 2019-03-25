@@ -12,6 +12,7 @@ import org.springframework.util.StringUtils;
 
 import com.target.contentModerator.model.BlacklistContent;
 import com.target.contentModerator.model.ReviewResult;
+import com.target.contentModerator.model.UserContent;
 
 /**
  * @author Gowri Joshi
@@ -23,20 +24,20 @@ public class UserContentReviewService {
 	@Autowired
 	private BlacklistContentService blacklistContentService;
 
-	public ReviewResult reviewContent(String id,String content,String lang) {
+	public ReviewResult reviewContent(UserContent userContent) {
 
 		List<BlacklistContent> blackListContent = new ArrayList<BlacklistContent>();
 
 
-		if(!StringUtils.isEmpty(lang)) {
+		if(!StringUtils.isEmpty(userContent.getLang())) {
 
-			blackListContent = blacklistContentService.getAllBlackListContentByLang(lang);
+			blackListContent = blacklistContentService.getAllBlackListContentByLang(userContent.getLang());
 
 		}else {
 			blackListContent = blacklistContentService.getAllBlackListContent();
 		}
 
-		ReviewResult res = new ReviewResult(id,lang,reviewContent(content,blackListContent));
+		ReviewResult res = new ReviewResult(userContent.getId(),userContent.getLang(),reviewContent(userContent.getContent(),blackListContent));
 
 		return res;
 
