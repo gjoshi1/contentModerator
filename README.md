@@ -1,4 +1,4 @@
-# contentModerator
+# Text Content Moderator
 
 # Requirement :
 Develop a REST API to moderate/validate the comment text to prevent customers from posting objectionable content. The REST API is expected to take a piece of text as an input and respond with feedback regarding objectionable content
